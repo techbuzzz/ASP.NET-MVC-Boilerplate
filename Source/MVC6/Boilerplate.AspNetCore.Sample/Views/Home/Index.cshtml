@@ -56,7 +56,7 @@
             <div class="carousel-caption">
                 <p>
                     Keep up to date with ASP.NET MVC Boilerplate on GitHub.
-                    <a class="btn btn-default btn-default" href="https://github.com/RehanSaeed/ASP.NET-MVC-Boilerplate">
+                    <a class="btn btn-default btn-default" href="https://github.com/ASP-NET-MVC-Boilerplate/Templates">
                         Learn More
                     </a>
                 </p>
@@ -149,7 +149,9 @@
             </div>
             <div class="col-md-6">
                 <ul>
+                    @* $Start-RuntimeInfoPage$ *@
                     <li><a href="~/runtimeinfo"><strong>/runtimeinfo</strong></a> - <a href="http://docs.asp.net/en/latest/fundamentals/diagnostics.html">Runtime information</a> (Development Only).</li>
+                    @* $End-RuntimeInfoPage$ *@
                     <li><a href="@Url.RouteUrl(ErrorControllerRoute.GetError, new { statusCode = 404, status = "notfound" })"><strong>@Url.RouteUrl(ErrorControllerRoute.GetError, new { statusCode = 404, status = "notfound" })</strong></a> - Error page.</li>
                     @* $Start-Windows81IE11EdgeFavicon$ *@
                     <li><a href="@Url.RouteUrl(HomeControllerRoute.GetBrowserConfigXml).TrimEnd('/')"><strong>@Url.RouteUrl(HomeControllerRoute.GetBrowserConfigXml).TrimEnd('/')</strong></a> - <a href="http://www.buildmypinnedsite.com">Windows 8.1/10 Icons</a>.</li>
@@ -165,7 +167,7 @@
         <header>
             <h2><span aria-hidden="true" class="fa fa-link"></span> ASP.NET MVC Boilerplate</h2>
         </header>
-        <p>Find out more about how the <a href="http://rehansaeed.com/asp-net-mvc-boilerplate/">ASP.NET MVC Boilerplate</a> project template was put together and what features it includes out of the box. Read the <a href="https://github.com/RehanSaeed/ASP.NET-MVC-Boilerplate/blob/master/Source/Boilerplate.Vsix/Release%20Notes.txt">release notes</a> to find out what updates are made to the project template and see the <a href="https://github.com/RehanSaeed/ASP.NET-MVC-Boilerplate/blob/master/TODO.md">To-Do list</a> to view a list of features that will be added in the future.</p>
+        <p>Find out more about how the <a href="http://rehansaeed.com/asp-net-mvc-boilerplate/">ASP.NET MVC Boilerplate</a> project template was put together and what features it includes out of the box. Read the <a href="https://github.com/ASP-NET-MVC-Boilerplate/Templates/blob/master/Source/Boilerplate.Vsix/Release%20Notes.txt">release notes</a> to find out what updates are made to the project template and see the <a href="https://github.com/ASP-NET-MVC-Boilerplate/Templates/blob/master/TODO.md">To-Do list</a> to view a list of features that will be added in the future.</p>
     </article>
 </div>
 
@@ -243,40 +245,30 @@
     </article>
     <article class="col-md-4" role="article">
         <header>
+            <h2><span aria-hidden="true" class="fa fa-wifi"></span> jQuery</h2>
+        </header>
+        <p><a href="http://jquery.com/">jQuery</a> is a fast, small, and feature-rich JavaScript library. It makes things like HTML document traversal and manipulation, event handling, animation, and Ajax much simpler with an easy-to-use API that works across a multitude of browsers.</p>
+    </article>
+    <article class="col-md-4" role="article">
+        <header>
             <h2><span aria-hidden="true" class="fa fa-check"></span> Modernizr</h2>
         </header>
         <p><a href="http://modernizr.com/">Modernizr</a> is a JavaScript library that detects HTML5 and CSS3 features in the user's browser.</p>
     </article>
-</div>
-
-<div class="row">
     <article class="col-md-4" role="article">
         <header>
             <h2><span aria-hidden="true" class="fa fa-lock"></span> NWebsec</h2>
         </header>
         <p><a href="https://github.com/NWebsec/NWebsec">NWebsec</a> makes securing your ASP.NET MVC site easy with a handful of simple attributes you can add to your global filters, controllers or actions.</p>
     </article>
-    <article class="col-md-4" role="article">
-        <header>
-            <h2><span aria-hidden="true" class="fa fa-life-ring"></span> Elmah</h2>
-        </header>
-        <p><a href="https://code.google.com/p/elmah/wiki/MVC">ELMAH</a> (Error Logging Modules and Handlers) is an application-wide error logging facility that is completely pluggable.</p>
-    </article>
+    @* $Start-Glimpse$ *@
     <article class="col-md-4" role="article">
         <header>
             <h2><span aria-hidden="true" class="fa fa-line-chart"></span> Glimpse</h2>
         </header>
         <p><a href="http://getglimpse.com/">Glimpse</a> makes debugging and performance testing easier by providing real time diagnostics & insights.</p>
     </article>
-</div>
-
-<div class="row">
-    <article class="col-md-4" role="article">
-        <header>
-            <h2><span aria-hidden="true" class="fa fa-wifi"></span> jQuery</h2>
-        </header>
-        <p><a href="http://jquery.com/">jQuery</a> is a fast, small, and feature-rich JavaScript library. It makes things like HTML document traversal and manipulation, event handling, animation, and Ajax much simpler with an easy-to-use API that works across a multitude of browsers.</p>
-    </article>
+    @* $End-Glimpse$ *@
     <article class="col-md-4" role="article">
         <header>
             <h2><span aria-hidden="true" class="fa fa-html5"></span> HTML5</h2>

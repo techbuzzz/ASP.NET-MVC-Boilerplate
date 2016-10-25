@@ -1,12 +1,82 @@
-﻿Version 3.0.0
+﻿Version 4.6.0
+MVC 5 & MVC 6
+- Added item to ReadMe.html to use the Google CSP Evaluator to validate the sites CSP policy.
+MVC 6
+- Added a CORS feature.
+- project.json publishOptions updated to use globs to copy cshtml files.
+- launchSettings.json updated to add profiles to run the app using the Staging and Production environments.
+- Add crossorigin="anonymous" attribute to external scripts supporting Access-Control-Allow-Origin: *.
+
+Version 4.5.0
+MVC 6
+- Added 'dotnet watch' launch profile to launchSettings.json, allowing you to edit code and refresh the browser to see your changes while
+  the app is running.
+
+Version 4.4.0
+MVC 6
+- Added Web Server feature that lets you select which web server you want to target.
+- nginx.conf added to configure the Nginx web server.
+- UseRandomizedStringHashAlgorithm setting Moved from web.config to app.config.
+- HttpExceptionMiddleware and InternalServerErrorOnExceptionMiddleware logs information messages.
+
+Version 4.3.0
+MVC 6
+- Get the environment in gulpfile.js by reading the launchSettings.json file if an environment variable does not exist.
+- Google Page Speed is now an optional feature under performance.
+- Set AddServerHeader to false for the Kestrel Web Server in Program.cs.
+
+Version 4.2.1
+MVC 6
+- Renamed the template in the File -> New Project window.
+
+Version 4.2.0
+MVC 6
+- Updated NWebSec to the latest ASP.NET Core 1.0 Version.
+- AddApplicationInsights in Startup.ConfigureServices now added fluently as it now returns IServiceCollection.
+
+Version 4.1.0
+MVC 6
+- Fixed https://github.com/ASP-NET-MVC-Boilerplate/Templates/issues/108
+
+Version 4.0.0
+MVC 6
+- Updated to ASP.NET Core 1.0 RTM.
+
+Version 3.2.0
+MVC 5 & 6
+- Removed the X-UA-Compatible HTTP header from web.config.
+MVC 6
+- Development mode now uses HTTPS if HTTPS everywhere is enabled. In development mode a SSL port is used and needs to
+  be set in the MVC options and in the Content-Security-Policy settings.
+- Major refactoring of Startup.cs making all method calls fluent.
+- CSP now configured using NWebSec middleware instead of NWebSec filters.
+- Anti-forgery tokens use the X-XSRF-TOKEN HTTP header name.
+- EnvironmentName.cs constant removed as the built in RC2 one with the same name now has a Staging constant in it which
+  was missing.
+- ReadMe.html updated to change comment about installing the HttpPlatformHandler and installing the IIS .NET Core
+  Windows Server Hosting Bundle instead.
+- Removed comments about IgnoreRoute missing from MVC 6.
+- Added the autostrip-json-comments NPM package to package.json and require statement to gulpfile.js to allow comments
+  in config.json and hosting.json.
+
+Version 3.1.1
+MVC 6
+- Fixed https://github.com/ASP-NET-MVC-Boilerplate/Templates/issues/104
+
+Version 3.1.0
+MVC 6
+- Enable UseRandomizedStringHashAlgorithm for .NET Framework 4.6.1 in web.config.
+- Dont need the 404 middleware in RC2, so it has been removed from the end of the pipeline in Startup.cs.
+
+Version 3.0.0
 MVC 5
 - Took my name out of the AssemblyCopyright attribute in AssemblyInfo.cs and left it blank for users to fill in.
 MVC 6
 - Upgraded to ASP.NET Core RC2!!! Too many changes to list here.
 - NuGet packages renamed:
-	- Boilerplate.Web.Mvc NuGet package renamed to Boilerplate.AspNetCore.
-	- Boilerplate.Web.Mvc.Razor NuGet package renamed to Boilerplate.AspNetCore.Razor.
-	- Boilerplate.Web.Mvc.TagHelpers NuGet package renamed to Boilerplate.AspNetCore.TagHelpers.
+    - Boilerplate.Web.Mvc NuGet package renamed to Boilerplate.AspNetCore.
+    - Boilerplate.Web.Mvc.Razor NuGet package renamed to Boilerplate.AspNetCore.Razor.
+    - Boilerplate.Web.Mvc.TagHelpers NuGet package renamed to Boilerplate.AspNetCore.TagHelpers.
 - The AssemblyCopyright attribute in AssemblyInfo.cs is now filled in automatically with the current user and year.
 - Switched from gulp-scsss-lint to gulp-sass-lint because it does not require Ruby to be installed.
 - Added a Target Framework feature selector, so that you can choose from .NET Core, .NET Framework or both.
@@ -22,7 +92,7 @@ MVC 6
 - Added a '~' at the beginning of all URL's to local resources.
 
 Version 2.18.0
-- Fixed SitemapGenerator bug https://github.com/RehanSaeed/ASP.NET-MVC-Boilerplate/issues/96.
+- Fixed SitemapGenerator bug https://github.com/ASP-NET-MVC-Boilerplate/Templates/issues/96.
 - Boilerplate.Web.Mvc NuGet packages updated for the above change.
 MVC 5
 - jQuery updated NuGet package updated from 2.2.0 to 2.2.3. ContentDeliveryNetwork.cs and packages.config updated.
@@ -54,13 +124,13 @@ MVC 6
 Version 2.15.0
 MVC 6
 - Boilerplate.Web.Mvc6 Updated:
-	- Performance improvements.
-	- Added ICommand and IAsyncCommand interfaces to help implement controller actions as separate classes.
-	- Refactored the DistributedCacheExtensions.
-	- Added ValidateModelStateAttribute to automatically validate ModelState.
+    - Performance improvements.
+    - Added ICommand and IAsyncCommand interfaces to help implement controller actions as separate classes.
+    - Refactored the DistributedCacheExtensions.
+    - Added ValidateModelStateAttribute to automatically validate ModelState.
 - Boilerplate.Web.Mvc6.TagHelpers Updated:
-	- Performance improvements.
-- Fixed Missing jshint and jslint (See https://github.com/RehanSaeed/ASP.NET-MVC-Boilerplate/issues/89).
+    - Performance improvements.
+- Fixed Missing jshint and jslint (See https://github.com/ASP-NET-MVC-Boilerplate/Templates/issues/89).
 - Updated JSON.NET reference.
 - Updated font-awesome to 4.6.1.
 - Updated jQuery to 2.2.2.
@@ -84,12 +154,12 @@ MVC 6
 
 Version 2.13.0
 MVC 6
-- Merged [Fixed problem with broken error handling on ReExecute](https://github.com/RehanSaeed/ASP.NET-MVC-Boilerplate/pull/85).
-- Merged [Fixes problem with returning BadGateway for StatusCodes below 200](https://github.com/RehanSaeed/ASP.NET-MVC-Boilerplate/pull/87).
+- Merged [Fixed problem with broken error handling on ReExecute](https://github.com/ASP-NET-MVC-Boilerplate/Templates/pull/85).
+- Merged [Fixes problem with returning BadGateway for StatusCodes below 200](https://github.com/ASP-NET-MVC-Boilerplate/Templates/pull/87).
 
 Version 2.12.0
 MVC 5
-- Add a note when debugging, always starts the site at the home page (See [this](https://github.com/RehanSaeed/ASP.NET-MVC-Boilerplate/issues/84) issue).
+- Add a note when debugging, always starts the site at the home page (See [this](https://github.com/ASP-NET-MVC-Boilerplate/Templates/issues/84) issue).
 
 Version 2.11.0
 MVC 5
@@ -222,7 +292,7 @@ MVC 6
 - gulpfile.js JSLint Fixes
 - webroot setting removed from project.json (https://github.com/aspnet/Announcements/issues/94).
 - ApplicationBasePath no longer needs to be set in Startup.Configuration.cs (https://github.com/aspnet/Announcements/issues/88).
-- Move Autoprefixer before sass in gulpfile.js (https://github.com/RehanSaeed/ASP.NET-MVC-Boilerplate/issues/44).
+- Move Autoprefixer before sass in gulpfile.js (https://github.com/ASP-NET-MVC-Boilerplate/Templates/issues/44).
 
 Version 2.7.0
 MVC 5

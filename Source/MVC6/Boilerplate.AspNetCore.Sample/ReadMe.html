@@ -13,30 +13,18 @@
 <body>
     <div id="main" class="container body-content" role="main">
 
-        <a href="https://github.com/RehanSaeed/ASP.NET-MVC-Boilerplate">
+        <a href="https://github.com/ASP-NET-MVC-Boilerplate/Templates">
             <img alt="ASP.NET MVC Boilerplate"
                  class="img-responsive"
                  src="https://raw.githubusercontent.com/RehanSaeed/ASP.NET-MVC-Boilerplate/master/Images/Banner.png"
                  style="margin-bottom: 20px">
         </a>
 
-        <!-- $Start-HttpsEverywhere$ -->
-        <div class="alert alert-info">
-            <label for="Alert-HttpsEverywhere" class="close" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </label>
-            <input id="Alert-HttpsEverywhere" name="Alert-HttpsEverywhere" class="alert-close-checkbox" type="checkbox"/>
-
-            <h2><span aria-hidden="true" class="fa fa-lock"></span> HTTPS Everywhere</h2>
-            <p>HTTPS is enabled but some features like redirecting from HTTP to HTTPS are disabled when running this site in the Development environment. This is to help make debugging easier.</p>
-        </div>
-        <!-- $End-HttpsEverywhere$ -->
-
         <div class="alert alert-info">
             <label for="Alert-GulpProblem" class="close" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </label>
-            <input id="Alert-GulpProblem" name="Alert-GulpProblem" class="alert-close-checkbox" type="checkbox" />
+            <input id="Alert-GulpProblem" name="Alert-GulpProblem" class="alert alert-close-checkbox" type="checkbox" />
 
             <h2><span aria-hidden="true" class="fa fa-beer"></span> Fixing Common Gulp Problem</h2>
             <p>The gulpfile.js sometimes does not load in the Visual Studio 'Task Runner Explorer' window with the error 'Failed to load, see the output window for more information'. If you see this error try right clicking the 'Dependencies' element and clicking on 'Restore Packages'. If that does not work unload and then reload the project or close and re-open the solution.</p>
@@ -46,7 +34,7 @@
             <label for="Alert-NpmProblem" class="close" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </label>
-            <input id="Alert-NpmProblem" name="Alert-NpmProblem" class="alert-close-checkbox" type="checkbox"/>
+            <input id="Alert-NpmProblem" name="Alert-NpmProblem" class="alert alert-close-checkbox" type="checkbox"/>
 
             <h2><span aria-hidden="true" class="fa fa-archive"></span> Fixing Common NPM Problem</h2>
             <p>
@@ -74,7 +62,7 @@
 
         <img alt="ASP.NET MVC Boilerplate Technology Map"
              class="img-responsive"
-             src="https://github.com/RehanSaeed/ASP.NET-MVC-Boilerplate/raw/master/Images/MVC%206%20Technology%20Map.png">
+             src="https://github.com/ASP-NET-MVC-Boilerplate/Templates/raw/master/Images/MVC%206%20Technology%20Map.png">
 
         <section>
             <h2>Task Check List</h2>
@@ -101,10 +89,12 @@
                         Update the TypeScript extension from the Tools -> Extensions and Updates menu.
                     </li>
                     <!-- $End-TypeScript$ -->
+                    <!-- $Start-WebServer-IIS$ -->
                     <li class="list-group-item">
-                        <input name="PreRequisites-IISHttpPlatformHandler" type="checkbox"> <strong>IIS HttpPlatformHandler</strong> -
-                        If you are using IIS and configuring it yourself, install the HttpPlatformHandler from <a href="http://docs.asp.net/en/latest/hosting/http-platformhandler.html">here</a>.
+                        <input name="PreRequisites-IISNETCoreWindowsServerHosting" type="checkbox"> <strong>IIS .NET Core Windows Server Hosting Bundle</strong> -
+                        If you are using IIS and configuring it yourself, install the <a href="https://docs.asp.net/en/latest/publishing/iis.html">.NET Core Windows Server Hosting</a> bundle from <a href="http://go.microsoft.com/fwlink/?LinkId=798480">here</a>.
                     </li>
+                    <!-- $End-WebServer-IIS$ -->
                 </ul>
             </article>
 
@@ -129,7 +119,7 @@
                     </li>
                     <li class="list-group-item">
                         <input name="HTTPS-ConfigureHPKP" type="checkbox"> <strong>Configure Public Key Pinning (HPKP)</strong> -
-                        Open the <em>Startup.Filters.cs</em> file and uncomment the <code>application.UseHpkp(...);</code> line to turn on <a href="https://developer.mozilla.org/en-US/docs/Web/Security/Public_Key_Pinning">Public Key Pinning (HPKP)</a>. Please note that there is some risk to setting up Public Key Pinning (HPKP), if you get it wrong people who have visited your site will get an error in their browser upon visiting your site so be careful.
+                        Open the <em>MvcOptionsExtensions.cs</em> file and uncomment the <code>application.UseHpkp(...);</code> line to turn on <a href="https://developer.mozilla.org/en-US/docs/Web/Security/Public_Key_Pinning">Public Key Pinning (HPKP)</a>. Please note that there is some risk to setting up Public Key Pinning (HPKP), if you get it wrong people who have visited your site will get an error in their browser upon visiting your site so be careful.
                     </li>
                     <!-- $End-NWebSec$ -->
                     <li class="list-group-item">
@@ -143,22 +133,26 @@
                 <ul class="list-group">
                     <li class="list-group-item">
                         <input name="ContentSecurityPolicy-ConfigureContentSecurityPolicy" type="checkbox"> <strong>Configure Content Security Policy</strong> -
-                        <a href="https://developer.mozilla.org/en-US/docs/Web/Security/CSP/Introducing_Content_Security_Policy">Content Security Policy (CSP)</a> is a HTTP header that controls where a web browser is allowed to load content from and the type of content it is allowed to load. It uses a white-list of allowed content and blocks anything not in the allowed list. It gives us very fine grained control and allows us to run our site in a sandbox in the users browser. Learn more about it <a href="http://rehansaeed.com/content-security-policy-for-asp-net-mvc/">here</a>, then Configure your CSP policy globally in <em>Startup.ContentSecurityPolicy.cs</em> or on your individual MVC controllers and actions if they have special access requirements.
+                        <a href="https://developer.mozilla.org/en-US/docs/Web/Security/CSP/Introducing_Content_Security_Policy">Content Security Policy (CSP)</a> is a HTTP header that controls where a web browser is allowed to load content from and the type of content it is allowed to load. It uses a white-list of allowed content and blocks anything not in the allowed list. It gives us very fine grained control and allows us to run our site in a sandbox in the users browser. Learn more about it <a href="http://rehansaeed.com/content-security-policy-for-asp-net-mvc/">here</a>, then Configure your CSP policy globally in <em>MvcOptionsExtensions.cs</em> or on your individual MVC controllers and actions if they have special access requirements.
                     </li>
                     <li class="list-group-item">
                         <input name="ContentSecurityPolicy-ReportUri" type="checkbox"> <strong>Configure Report URI</strong> -
-                        Register with <a href="https://report-uri.io/">Report URI</a> to get a URL where you can send your CSP violation reports. Then add this URL to the <code>CspReportUriAttribute</code> in <em>Startup.ContentSecurityPolicy.cs</em>.
+                        Register with <a href="https://report-uri.io/">Report URI</a> to get a URL where you can send your CSP violation reports. Then add this URL to the <code>CspReportUriAttribute</code> in <em>MvcOptionsExtensions.cs</em>.
                     </li>
                     <li class="list-group-item">
                         <input name="ContentSecurityPolicy-CheckModernizrCSPSupport" type="checkbox"> <strong>Check Modernizr CSP Support</strong> -
                         Modernizr does not currently support
                         <a href="https://developer.mozilla.org/en-US/docs/Web/Security/CSP/Introducing_Content_Security_Policy">Content Security Policy (CSP)</a>
                         because it uses in-line CSS styles rather than separate files. To get around this problem, in-line Styles have been allowed in
-                        the CSP policy (See <em>Startup.ContentSecurityPolicy.cs</em>). This is not a good practice and reduces some of the security benefits of using it. Keep an eye on
+                        the CSP policy (See <em>MvcOptionsExtensions.cs</em>). This is not a good practice and reduces some of the security benefits of using it. Keep an eye on
                         <a href="http://stackoverflow.com/questions/26532234/modernizr-causes-content-security-policy-csp-violation-errors">this</a> StackOverflow
                         post and
                         <a href="https://github.com/Modernizr/Modernizr/pull/1263">this</a> issue raised on the Modernizr development site for when Modernizr
                         finally adds support for CSP.
+                    </li>
+                    <li class="list-group-item">
+                        <input name="ContentSecurityPolicy-CSPEvaluator" type="checkbox"> <strong>Check CSP Evaluator</strong> -
+                        Run the Google <a href="https://csp-evaluator.withgoogle.com/">CSP Evaluator</a> against your site to check that your CSP policy valid and secure.
                     </li>
                 </ul>
                 <!-- $End-NWebSec$ -->
@@ -266,10 +260,6 @@
                 <h4>Other Performance</h4>
                 <ul class="list-group">
                     <li class="list-group-item">
-                        <input name="OtherPerformance-DisableETags" type="checkbox"> <strong>Disable ETags</strong> -
-                        If running IIS 7.5 or below, disable ETags. Open the <em>web.config</em> file and search for 'setEtag' for further instructions.
-                    </li>
-                    <li class="list-group-item">
                         <input name="OtherPerformance-PrefetchPrerenderPages" type="checkbox"> <strong>Pre-fetch/Pre-render Pages</strong> -
                         If there are subsequent pages that a user is likely to visit, such as the next link on a gallery page, consider adding pre-fetch or pre-render
                         link tags to the head of the page. See <a href="http://www.stevesouders.com/blog/2013/11/07/prebrowsing/">here</a> and
@@ -319,10 +309,12 @@
             <article>
                 <h3><span aria-hidden="true" class="fa fa-puzzle-piece"></span> Compatibility</h3>
                 <ul class="list-group">
+                    <!-- $Start-WebServer-IIS$ -->
                     <li class="list-group-item">
                         <input name="Compatibility-OldIIS" type="checkbox"> <strong>IIS 7.5/8</strong> -
                         Some <em>web.config</em> settings do not exist in older versions of IIS (7.5 and 8). If you are using an older version, edit the <em>web.config</em> file and remove the <code>dynamicIpSecurity</code> settings.
                     </li>
+                    <!-- $End-WebServer-IIS$ -->
                     <li class="list-group-item">
                         <input name="Compatibility-TestBrowserCompatability" type="checkbox"> <strong>Test Browser Compatibility</strong> -
                         Test the compatibility of your site with various browsers at <a href="http://browsershots.org/">BrowserShots.org</a>, <a href="https://browserling.com/">Browserling.com</a> and <a href="https://spoon.net/browsers">Spoon.net</a>.
@@ -371,6 +363,7 @@
                             <li>
                                 <a href="https://www.cloudflare.com/">Cloudflare</a> - You can use the Cloudflare service as a proxy to your site. Cloudflare has sophisticated techniques to block attackers from accessing your site and is used by a large proportion of websites on the internet.
                             </li>
+                            <!-- $Start-WebServer-IIS$ -->
                             <li>
                                 <a href="http://www.iis.net/configreference/system.webserver/security/dynamicipsecurity">Dynamic IP Security</a> is a feature of IIS that can be configured using the <code>dynamicIpSecurity</code> section of the <em>web.config</em> file. Dynamic IP Security is set to logging only mode in this site, so IIS will log malicious requests from clients without actually rejecting them. If you decide to use this feature, run your site in this mode for some time and slowly raise the limits until you get no more 403.501 or 403.502 errors. Normal legitimate requests that can look like a DoS attack are:
                                 <ol>
@@ -380,6 +373,7 @@
                                 </ol>
                                 You can test this feature by recording a request to your site using <a href="http://www.telerik.com/fiddler">Fiddler</a> and then replaying it many times.
                             </li>
+                            <!-- $End-WebServer-IIS$ -->
                         </ul>
                     </li>
                     <!-- $Start-ApplicationInsights$ -->
@@ -390,7 +384,7 @@
                     <!-- $End-ApplicationInsights$ -->
                     <li class="list-group-item">
                         <input name="ResilienceAndErrorHandling-Logging" type="checkbox"> <strong>Add Logging</strong> -
-                        This template comes with basic logging enabled in development mode. Consider using <a href="http://serilog.net/">Serilog</a> or another logging framework in production. Logging can be configured in <em>Startup.Logging.cs</em>.
+                        This template comes with basic logging enabled in development mode. Consider using <a href="http://serilog.net/">Serilog</a> or another logging framework in production. Logging can be configured in <em>Startup.cs</em>.
                     </li>
                 </ul>
             </article>
@@ -556,11 +550,11 @@
                     </li>
                     <li class="list-group-item">
                         <input name="ThankDevelopers-ReviewBoilerplate" type="checkbox"> <strong>Review ASP.NET MVC Boilerplate</strong> -
-                        A lot of work was put into this project template. Show your appreciation by reviewing the project <a href="https://visualstudiogallery.msdn.microsoft.com/6cf50a48-fc1e-4eaf-9e82-0b2a6705ca7d">here</a> and also star the project on <a href="https://github.com/RehanSaeed/ASP.NET-MVC-Boilerplate">GitHub</a>.
+                        A lot of work was put into this project template. Show your appreciation by reviewing the project <a href="https://visualstudiogallery.msdn.microsoft.com/6cf50a48-fc1e-4eaf-9e82-0b2a6705ca7d">here</a> and also star the project on <a href="https://github.com/ASP-NET-MVC-Boilerplate/Templates">GitHub</a>.
                     </li>
                     <li class="list-group-item">
                         <input name="ThankDevelopers-AdvertiseYourSite" type="checkbox"> <strong>Advertise Your Site</strong> -
-                        Raise an issue <a href="https://github.com/RehanSaeed/ASP.NET-MVC-Boilerplate/issues">here</a> to advertise your site on the ASP.NET MVC Boilerplate 'built with' section.
+                        Raise an issue <a href="https://github.com/ASP-NET-MVC-Boilerplate/Templates/issues">here</a> to advertise your site on the ASP.NET MVC Boilerplate 'built with' section.
                     </li>
                 </ul>
             </article>
@@ -579,7 +573,7 @@
                     </li>
                     <li class="list-group-item">
                         <input name="KeepingYourSiteUpToDate-KeepTemplateUpToDate" type="checkbox"> <strong>Keep Template Up To Date</strong> -
-                        The ASP.NET MVC Boilerplate project template is constantly improving. Keep an eye on the <a href="https://github.com/RehanSaeed/ASP.NET-MVC-Boilerplate/blob/master/Source/MvcBoilerplateVsix/Release%20Notes.txt">release notes</a> and <a href="https://github.com/RehanSaeed/ASP.NET-MVC-Boilerplate/commits/master">commits</a> to the project and update your site accordingly.
+                        The ASP.NET MVC Boilerplate project template is constantly improving. Keep an eye on the <a href="https://github.com/ASP-NET-MVC-Boilerplate/Templates/blob/master/Source/MvcBoilerplateVsix/Release%20Notes.txt">release notes</a> and <a href="https://github.com/ASP-NET-MVC-Boilerplate/Templates/commits/master">commits</a> to the project and update your site accordingly.
                     </li>
                 </ul>
             </article>

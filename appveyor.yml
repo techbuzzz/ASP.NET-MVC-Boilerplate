@@ -1,0 +1,27 @@
+# AppVeyor documentation https://www.appveyor.com/docs
+
+version: '{build}'
+
+pull_requests:
+  # Do not increment build number for pull requests
+  do_not_increment_build_number: true
+
+environment:
+  # Set the DOTNET_SKIP_FIRST_TIME_EXPERIENCE environment variable to stop wasting time caching packages
+  DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true
+  # The My-Get API key to publish the VSIX
+  MyGetApiKey:
+    secure: aunGGWt32irQiOTX2wIO6e2Y5Ga0girA3xSUsmQv6E9d6ohHdbK5HJpXpmxW9QM3
+
+build_script:
+- ps: .\build.ps1
+
+test: off
+
+artifacts:
+# Store VSIX packages
+- path: .\Artifacts\**\*.vsix
+  name: VSIX
+# Store xUnit Test Results
+- path: .\Artifacts\**\*.xml
+  name: xUnit Test Results

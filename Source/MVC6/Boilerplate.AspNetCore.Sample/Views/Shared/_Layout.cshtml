@@ -127,10 +127,10 @@
     @* Move site.css to a content delivery network (CDN) for better performance. *@
     <link asp-append-version="true" rel="stylesheet" href="~/css/site.css" />
     <meta name="x-font-awesome-stylesheet-fallback-test" class="fa">
-    <environment names="@MvcBoilerplate.Constants.EnvironmentName.Development">
+    <environment names="@EnvironmentName.Development">
         <link asp-append-version="true" rel="stylesheet" href="~/css/font-awesome.css" />
     </environment>
-    <environment names="@MvcBoilerplate.Constants.EnvironmentName.Staging,@MvcBoilerplate.Constants.EnvironmentName.Production">
+    <environment names="@EnvironmentName.Staging,@EnvironmentName.Production">
         <link rel="stylesheet" href="@ContentDeliveryNetwork.MaxCdn.FontAwesomeUrl"
               asp-subresource-integrity-href="~/css/font-awesome.css" />
     </environment>
@@ -139,10 +139,10 @@
     @* Do not move this file to a CDN. See https://github.com/Microsoft/ApplicationInsights-aspnet5/issues/120 *@
     <script asp-append-version="true" src="~/js/application-insights.js"></script>
     @* $End-ApplicationInsights$ *@
-    <environment names="@MvcBoilerplate.Constants.EnvironmentName.Development">
+    <environment names="@EnvironmentName.Development">
         <script asp-append-version="true" src="~/js/modernizr.js"></script>
     </environment>
-    <environment names="@MvcBoilerplate.Constants.EnvironmentName.Staging,@MvcBoilerplate.Constants.EnvironmentName.Production">
+    <environment names="@EnvironmentName.Staging,@EnvironmentName.Production">
         <script src="@ContentDeliveryNetwork.Microsoft.ModernizrUrl"></script>
     </environment>
 
@@ -199,15 +199,16 @@
                     @* $Start-Feed$ *@
                     <li><a asp-route="@HomeControllerRoute.GetFeed"><span aria-hidden="true" class="fa fa-rss"></span> RSS</a></li>
                     @* $End-Feed$ *@
-                    @if (HostingEnvironment.IsDevelopment())
-                    {
+                    @* $Start-RuntimeInfoPage$ *@
+                    <environment names="@EnvironmentName.Development">
                         <li class="dropdown">
                             <a class="dropdown-toggle" role="button" aria-expanded="false" href="#" data-toggle="dropdown"><span aria-hidden="true" class="fa fa-cogs"></span> Debug <span aria-hidden="true" class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
                                 <li><a href="~/runtimeinfo"><span aria-hidden="true" class="fa fa-info"></span> Runtime Information</a></li>
                             </ul>
                         </li>
-                    }
+                    </environment>
+                    @* $End-RuntimeInfoPage$ *@
                 </ul>
                 @* $Start-Search$ *@
                 <form action="@Url.RouteUrl(HomeControllerRoute.GetSearch)" class="navbar-form navbar-right" method="get" role="search">
@@ -237,22 +238,27 @@
     </div>
 
 
-    <environment names="@MvcBoilerplate.Constants.EnvironmentName.Development">
+    <environment names="@EnvironmentName.Development">
         <script asp-append-version="true" src="~/js/jquery.js"></script>
         <script asp-append-version="true" src="~/js/jquery-validate.js"></script>
         <script asp-append-version="true" src="~/js/jquery-validate-unobtrusive.js"></script>
         <script asp-append-version="true" src="~/js/bootstrap.js"></script>
         <script asp-append-version="true" src="~/js/site.js"></script>
     </environment>
-    <environment names="@MvcBoilerplate.Constants.EnvironmentName.Staging,@MvcBoilerplate.Constants.EnvironmentName.Production">
-        @* asp-subresource-integrity-src - Ensures the CDN resource has not been tampered with.
-           See http://rehansaeed.com/subresource-integrity-taghelper-using-asp-net-core *@
-        <script src="@ContentDeliveryNetwork.Google.JQueryUrl"
+    <environment names="@EnvironmentName.Staging,@EnvironmentName.Production">
+        @* crossorigin - Enable reporting of errors from third party scripts.
+            See https://raygun.com/blog/2015/05/fixing-script-errors/
+           asp-subresource-integrity-src - Ensures the CDN resource has not been tampered with.
+            See http://rehansaeed.com/subresource-integrity-taghelper-using-asp-net-core *@
+        <script crossorigin="anonymous"
+                src="@ContentDeliveryNetwork.Google.JQueryUrl"
                 asp-subresource-integrity-src="~/js/jquery.js"></script>
-        <script src="@ContentDeliveryNetwork.Microsoft.JQueryValidateUrl"
+        <script crossorigin="anonymous"
+                src="@ContentDeliveryNetwork.Microsoft.JQueryValidateUrl"
                 asp-subresource-integrity-src="~/js/jquery-validate.js"></script>
         <script src="@ContentDeliveryNetwork.Microsoft.JQueryValidateUnobtrusiveUrl"></script>
-        <script src="@ContentDeliveryNetwork.Microsoft.BootstrapUrl"
+        <script crossorigin="anonymous"
+                src="@ContentDeliveryNetwork.Microsoft.BootstrapUrl"
                 asp-subresource-integrity-src="~/js/bootstrap.js"></script>
         @* Move site.js to a content delivery network (CDN) for better performance. *@
         <script asp-append-version="true" src="~/js/site.js"></script>

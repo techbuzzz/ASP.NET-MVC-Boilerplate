@@ -36,7 +36,9 @@ var gulp = require('gulp'),
     uglify = require('gulp-uglify'),            // Minifies JavaScript (https://www.npmjs.com/package/gulp-uglify/)
     gutil = require('gulp-util'),               // Gulp utilities (https://www.npmjs.com/package/gulp-util/)
     merge = require('merge-stream'),            // Merges one or more gulp streams into one (https://www.npmjs.com/package/merge-stream/)
+    // $Start-GooglePageSpeed$
     psi = require('psi'),                       // Google PageSpeed performance tester (https://www.npmjs.com/package/psi/)
+    // $End-GooglePageSpeed$
     rimraf = require('rimraf'),                 // Deletes files and folders (https://www.npmjs.com/package/rimraf/)
     sass = require('gulp-sass'),                // Compile SCSS to CSS (https://www.npmjs.com/package/gulp-sass/)
     sasslint = require('gulp-sass-lint'),       // SASS linter (https://www.npmjs.com/package/gulp-sass-lint/)
@@ -44,9 +46,10 @@ var gulp = require('gulp'),
     tslint = require('gulp-tslint'),            // TypeScript linter (https://www.npmjs.com/package/gulp-tslint/)
     typescript = require('gulp-typescript'),    // TypeScript compiler (https://www.npmjs.com/package/gulp-typescript/)
     // $End-TypeScript$
+    _ = require('autostrip-json-comments'),     // Strips JSON comments so the next two lines work (https://www.npmjs.com/package/autostrip-json-comments)
     config = require('./config.json'),          // Read the config.json file into the config variable.
     hosting = require('./hosting.json'),        // Read the hosting.json file into the hosting variable.
-    project = require('./project.json');        // Read the project.json file into the project variable.
+    launch = require('./Properties/launchSettings.json'); // Read the launchSettings.json file into the launch variable.
 
 // Holds information about the hosting environment.
 var environment = {
@@ -54,9 +57,14 @@ var environment = {
     development: 'Development',
     staging: 'Staging',
     production: 'Production',
-    // Gets the current hosting environment the application is running under. This comes from the environment variables.
+    // Gets the current hosting environment the app is running under. Looks for the ASPNETCORE_ENVIRONMENT environment
+    // variable, if not found looks at the launchSettings.json file which if not found defaults to Development.
     current: function () {
-        return process.env.ASPNETCORE_ENVIRONMENT || this.development;
+        var environ = process.env.ASPNETCORE_ENVIRONMENT ||
+            (launch && launch.profiles['IIS Express'].environmentVariables.ASPNETCORE_ENVIRONMENT) ||
+            this.development;
+        gutil.log('Current Environment: ' + environ);
+        return environ;
     },
     // Are we running under the development environment.
     isDevelopment: function () {
@@ -448,7 +456,9 @@ function () {
  */
 gulp.task('build-html', function () {
     return gulp
-        .src(paths.views + '**/*.cshtml')       // Start with the .cshtml Razor files and not .min.cshtml files.
+        .src([                                  // Start with the .cshtml Razor files and not .min.cshtml files.
+            paths.views + '**/*.cshtml',
+            '!' + paths.views + '**/*.min.cshtml'])
         .pipe(minifyCshtml())                   // Minify the CSHTML (Written by Muhammad Rehan Saeed as an example. This removes comments and white space using regular expressions, so not great but it works).
         .pipe(rename(function (path) {          // Rename the files from .cshtml to .min.cshtml.
             path.extname = '.min.cshtml';
@@ -541,6 +551,7 @@ gulp.task('watch-tests', function () {
  */
 gulp.task('watch', ['watch-css', 'watch-js']);
 
+// $Start-GooglePageSpeed$
 function pageSpeed(strategy, cb) {
     if (siteUrl === undefined) {
         return cb('siteUrl is undefined. Google PageSpeed requires a URL to your deployed site.');
@@ -576,6 +587,7 @@ gulp.task('pagespeed-desktop', function (cb) {
     return pageSpeed('desktop', cb);
 });
 
+// $End-GooglePageSpeed$
 /*
  * The default gulp task. This is useful for scenarios where you are not using Visual Studio. Does a full clean and
  * build before watching for any file changes.

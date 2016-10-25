@@ -15,13 +15,64 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "MvcBoilerplate": {
+    "IIS Express (Development)": {
+      "commandName": "IISExpress",
+      "launchBrowser": true,
+      "launchUrl": "https://localhost:44300/",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    },
+    "dotnet run (Development)": {
       "commandName": "Project",
       "commandLineArgs": "--server.urls http://*:1025",
       "launchBrowser": true,
-      "launchUrl": "http://localhost:1025",
+      "launchUrl": "http://localhost:1025/",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    },
+    "dotnet watch run (Development)": {
+      "executablePath": "C:\\Program Files\\dotnet\\dotnet.exe",
+      "commandLineArgs": "watch run --server.urls http://*:1025",
+      "launchBrowser": true,
+      "launchUrl": "http://localhost:1025/",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    },
+    "IIS Express (Staging)": {
+      "commandName": "IISExpress",
+      "launchBrowser": true,
+      "launchUrl": "https://localhost:44300/",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Staging"
+      }
+    },
+    "dotnet run (Staging)": {
+      "commandName": "Project",
+      "commandLineArgs": "--server.urls http://*:1025",
+      "launchBrowser": true,
+      "launchUrl": "http://localhost:1025/",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Staging"
+      }
+    },
+    "IIS Express (Production)": {
+      "commandName": "IISExpress",
+      "launchBrowser": true,
+      "launchUrl": "https://localhost:44300/",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Production"
+      }
+    },
+    "dotnet run (Production)": {
+      "commandName": "Project",
+      "commandLineArgs": "--server.urls http://*:1025",
+      "launchBrowser": true,
+      "launchUrl": "http://localhost:1025/",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Production"
       }
     }
   }

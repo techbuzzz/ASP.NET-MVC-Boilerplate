@@ -1,125 +1,138 @@
 {
   "version": "1.0.0-*",
+
+  // Used to store connection strings and other sensitive settings, so you don't have to check them into your source
+  // control provider. Only use this in Development, it is not intended for Production use. See
+  // http://docs.asp.net/en/latest/security/app-secrets.html
   "userSecretsId": "MvcBoilerplate-fe5dc3df-2725-4ccc-9e53-0fc56fe83882",
 
   "dependencies": {
-    "Boilerplate.AspNetCore": "1.0.0-rc2-final-0001",
-    "Boilerplate.AspNetCore.TagHelpers": "1.0.0-rc2-final-0001",
+    "Boilerplate.AspNetCore": "1.2.1",
+    "Boilerplate.AspNetCore.TagHelpers": "1.0.0",
     // $Start-CshtmlMinification$
-    "Boilerplate.AspNetCore.Razor": "1.0.0-rc2-final-0001",
+    "Boilerplate.AspNetCore.Razor": "1.0.0",
     // $End-CshtmlMinification$
     // $Start-Glimpse$
     // "Glimpse": "2.0.0-beta1",
     // $End-Glimpse$
     // $Start-ApplicationInsights$
-    "Microsoft.ApplicationInsights.AspNetCore": "1.0.0-rc2-final",
+    "Microsoft.ApplicationInsights.AspNetCore": "1.0.0",
     // $End-ApplicationInsights$
-    "Microsoft.AspNetCore.CookiePolicy": "1.0.0-rc2-final",
-    "Microsoft.AspNetCore.Diagnostics": "1.0.0-rc2-final",
-    "Microsoft.AspNetCore.Mvc": "1.0.0-rc2-final",
+    "Microsoft.AspNetCore.CookiePolicy": "1.0.0",
+    // $Start-CORS$
+    "Microsoft.AspNetCore.Cors": "1.0.0",
+    // $End-CORS$
+    "Microsoft.AspNetCore.Diagnostics": "1.0.0",
+    "Microsoft.AspNetCore.Mvc": "1.0.0",
     // $Start-XmlFormatter$
-    "Microsoft.AspNetCore.Mvc.Formatters.Xml": "1.0.0-rc2-final",
+    "Microsoft.AspNetCore.Mvc.Formatters.Xml": "1.0.0",
     // $End-XmlFormatter$
     "Microsoft.AspNetCore.Razor.Tools": {
-      "version": "1.0.0-preview1-final",
+      "version": "1.0.0-preview2-final",
       "type": "build"
     },
-    "Microsoft.AspNetCore.Server.IISIntegration": "1.0.0-rc2-final",
-    "Microsoft.AspNetCore.Server.Kestrel": "1.0.0-rc2-final",
-    "Microsoft.AspNetCore.StaticFiles": "1.0.0-rc2-final",
-    "Microsoft.Extensions.Configuration.Binder": "1.0.0-rc2-final",
-    "Microsoft.Extensions.Configuration.CommandLine": "1.0.0-rc2-final",
-    "Microsoft.Extensions.Configuration.EnvironmentVariables": "1.0.0-rc2-final",
-    "Microsoft.Extensions.Configuration.Json": "1.0.0-rc2-final",
-    "Microsoft.Extensions.Configuration.UserSecrets": "1.0.0-rc2-final",
-    "Microsoft.Extensions.Logging": "1.0.0-rc2-final",
-    "Microsoft.Extensions.Logging.Console": "1.0.0-rc2-final",
-    "Microsoft.Extensions.Logging.Debug": "1.0.0-rc2-final",
-    "Microsoft.Extensions.Options.ConfigurationExtensions": "1.0.0-rc2-final",
-    "Microsoft.VisualStudio.Web.BrowserLink.Loader": "14.0.0-rc2-final",
+    // $Start-WebServer-IIS$
+    "Microsoft.AspNetCore.Server.IISIntegration": "1.0.0",
+    // $End-WebServer-IIS$
+    "Microsoft.AspNetCore.Server.Kestrel": "1.0.0",
+    "Microsoft.AspNetCore.StaticFiles": "1.0.0",
+    "Microsoft.Extensions.Configuration.Binder": "1.0.0",
+    "Microsoft.Extensions.Configuration.CommandLine": "1.0.0",
+    "Microsoft.Extensions.Configuration.EnvironmentVariables": "1.0.0",
+    "Microsoft.Extensions.Configuration.Json": "1.0.0",
+    "Microsoft.Extensions.Configuration.UserSecrets": "1.0.0",
+    "Microsoft.Extensions.Logging": "1.0.0",
+    "Microsoft.Extensions.Logging.Console": "1.0.0",
+    "Microsoft.Extensions.Logging.Debug": "1.0.0",
+    "Microsoft.Extensions.Options.ConfigurationExtensions": "1.0.0",
+    "Microsoft.VisualStudio.Web.BrowserLink.Loader": "14.0.0",
     // $Start-NWebSec$
-    "NWebsec.AspNetCore.Middleware": "1.0.0-gamma-5",
-    "NWebsec.AspNetCore.Mvc": "1.0.0-gamma-5",
+    "NWebsec.AspNetCore.Middleware": "1.0.0-gamma1-15",
+    "NWebsec.AspNetCore.Mvc": "1.0.0-gamma1-15",
     // $End-NWebSec$
-    "Newtonsoft.Json": "8.0.3"
+    "Newtonsoft.Json": "9.0.1"
   },
 
   "frameworks": {
     // $Start-TargetFramework-NetCore$
+    // Target the .NET Core framework.
     "netcoreapp1.0": {
       "dependencies": {
         "Microsoft.NETCore.App": {
-          "version": "1.0.0-rc2-3002702",
+          "version": "1.0.0",
           "type": "platform"
         }
       },
       "imports": [
         "dotnet5.6",
-        "dnxcore50",
         "portable-net45+win8"
       ]
     },
     // $End-TargetFramework-NetCore$
     // $Start-TargetFramework-NetFramework$
+    // Target the full .NET 4.6.1 framework.
     "net461": {
     }
     // $End-TargetFramework-NetFramework$
   },
 
+  // Command line tools which can be run using 'dotnet [Tool Name]'.
   "tools": {
-    "Microsoft.AspNetCore.Razor.Tools": {
-      "version": "1.0.0-preview1-final",
-      "imports": "portable-net45+win8+dnxcore50"
-    },
-    "Microsoft.AspNetCore.Server.IISIntegration.Tools": {
-      "version": "1.0.0-preview1-final",
-      "imports": "portable-net45+win8+dnxcore50"
-    },
-    "Microsoft.DotNet.Watcher.Tools": {
-      "version": "1.0.0-*",
-      "imports": "portable-net451+win8"
-    },
-    "Microsoft.Extensions.SecretManager.Tools": {
-      "version": "1.0.0-preview1-final",
-      "imports": "portable-net45+win8+dnxcore50"
-    }
+    "Microsoft.AspNetCore.Razor.Tools": "1.0.0-preview2-final",
+    // $Start-WebServer-IIS$
+    // dotnet publish-iis - Modifies the web.config file for publishing.
+    "Microsoft.AspNetCore.Server.IISIntegration.Tools": "1.0.0-preview2-final",
+    // $End-WebServer-IIS$
+    // dotnet watch - which allows you to edit code and refresh the browser to see your changes while the app is running.
+    "Microsoft.DotNet.Watcher.Tools": "1.0.0-preview2-final",
+    "Microsoft.Extensions.SecretManager.Tools": "1.0.0-preview2-final"
   },
 
   "buildOptions": {
     "compile": {
+      // Ignore the following folders when looking for C# code to compile.
       "exclude": [
         "bower_components",
         "node_modules",
         "wwwroot"
       ]
     },
+    // Require the application to use a static Main method.
     "emitEntryPoint": true,
     "preserveCompilationContext": true
   },
 
   "runtimeOptions": {
     "configProperties": {
+      // Concurrent - Specifies whether the common language runtime runs garbage collection on a separate thread
+      //              (See https://msdn.microsoft.com/en-us/library/yhwwzef8%28v=vs.110%29.aspx).
       "System.GC.Concurrent": true,
+      // Server - Specifies whether the common language runtime runs server garbage collection.
+      //          (See https://msdn.microsoft.com/en-us/library/ms229357%28v=vs.110%29.aspx).
       "System.GC.Server": true
     }
   },
 
   "publishOptions": {
+    // Include the following folders and files when publishing the project.
     "include": [
       "wwwroot",
-      "Views",
+      "**/*.cshtml",
       "config.json",
       "web.config"
     ]
   },
 
   "scripts": {
+    // Execute the following commands before publishing the project.
     "prepublish": [
       "npm install",
       "bower install",
       "gulp build"
     ],
+    // Execute the following commands after publishing the project.
     "postpublish": [
+      // Runs the publish-iis tool which modifies the web.config file.
       "dotnet publish-iis --publish-folder %publish:OutputPath% --framework %publish:FullTargetFramework%"
     ]
   }

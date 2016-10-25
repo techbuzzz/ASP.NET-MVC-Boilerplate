@@ -2,6 +2,7 @@
   "name": "asp.net-mvc-boilerplate",
   "version": "0.0.0",
   "devDependencies": {
+    "autostrip-json-comments": "0.0.4",
     "gulp": "3.9.1",
     "gulp-autoprefixer": "2.3.1",
     "gulp-concat": "2.6.0",
@@ -39,7 +40,9 @@
     "gulp-uglify": "1.5.3",
     "gulp-util": "3.0.7",
     "merge-stream": "1.0.0",
+    // $Start-GooglePageSpeed$
     "psi": "2.0.3",
+    // $End-GooglePageSpeed$
     "rimraf": "2.5.2"
   }
 }
